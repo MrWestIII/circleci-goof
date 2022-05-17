@@ -53,14 +53,14 @@ jobs:
     steps:
       - run : |
           TAG=0.1.<< pipeline.number >>
-          git clone https://github.com/jiajunngjj/circleci-argocd-goof.git
+          git clone https://github.com/jiajunngjj/argocd-goof.git
           cd circleci-argocd-goof
           sed -i 's/\(docker-goof\)\(.*\)/\1:'$TAG'/' goof/goof-deployment.yaml
           git config user.email "ngjiajun13@gmail.com"
           git config user.name "jiajunngjj"
           git add goof/goof-deployment.yaml
           git commit -m "update from circleci to trigger argocd"
-          git push https://$GITHUB_PERSONAL_TOKEN@github.com/jiajunngjj/circleci-argocd-goof.git 
+          git push https://$GITHUB_PERSONAL_TOKEN@github.com/jiajunngjj/argocd-goof.git 
 workflows:
   build_and_test:
     jobs:
