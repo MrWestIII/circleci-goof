@@ -48,6 +48,9 @@ jobs:
           TAG=0.1.<< pipeline.number >>
           snyk auth $SNYK_TOKEN
           snyk container test mrwestiii/docker-goof:$TAG --file=./Dockerfile || true
+          
+    - store_artifacts:
+          path: code-results.html
          
 workflows:
   build_and_test:
