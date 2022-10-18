@@ -26,9 +26,8 @@ jobs:
     - snyk/scan:
         token-variable: SNYK_TOKEN
         fail-on-issues: false
-        monitor-on-build: false     
-    - store_artifacts:
-          path: code-results.html 
+        monitor-on-build: true     
+ 
   docker_build_push:
     docker:
       - image: cimg/node:18.0.0
